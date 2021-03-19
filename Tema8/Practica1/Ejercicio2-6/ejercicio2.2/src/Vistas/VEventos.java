@@ -252,7 +252,7 @@ public class VEventos extends javax.swing.JFrame {
 
     private void tfFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfFechaActionPerformed
         try{
-            Pattern p=Pattern.compile("^[1-31]{1}/[1-12]{1}/[0-9]{4}$");
+            Pattern p=Pattern.compile("^[1-9]{2}-[1-9]{2}-[0-9]{4}$");
             Matcher m=p.matcher(tfLugar.getText());
             if(!m.matches())
                     throw new Exception("tiene que tener este formato xx/xx/xxxx");
@@ -264,11 +264,29 @@ public class VEventos extends javax.swing.JFrame {
     }//GEN-LAST:event_tfFechaActionPerformed
 
     private void tfHoraInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfHoraInicioActionPerformed
-        // TODO add your handling code here:
+           try{
+            Pattern p=Pattern.compile("^[1-9]{2}:[1-9]{2}$");
+            Matcher m=p.matcher(tfLugar.getText());
+            if(!m.matches())
+                    throw new Exception("tiene que tener este formato xx/xx/xxxx");
+            tfHoraInicio.requestFocus();
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
     }//GEN-LAST:event_tfHoraInicioActionPerformed
 
     private void tfHoraFinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfHoraFinActionPerformed
-        // TODO add your handling code here:
+           try{
+            Pattern p=Pattern.compile("^^[1-9]{2}:[1-9]{2}$");
+            Matcher m=p.matcher(tfLugar.getText());
+            if(!m.matches())
+                    throw new Exception("tiene que tener este formato xx/xx/xxxx");
+            tfHoraInicio.requestFocus();
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
     }//GEN-LAST:event_tfHoraFinActionPerformed
 
     private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
@@ -283,7 +301,7 @@ public class VEventos extends javax.swing.JFrame {
                     Ejercicio22.inicio();
                     break;
                 case 'a':
-                    Ejercicio22.actualizar();
+                    Ejercicio22.actualizar(tfNombre.getText(),tfLugar.getText(),tfFecha.getText(),tfHoraInicio.getText(),tfHoraFin.getText(),tfAforo.getText());
                     Ejercicio22.inicio();
                     break;
             }
@@ -291,7 +309,7 @@ public class VEventos extends javax.swing.JFrame {
         catch(SQLException e){
             JOptionPane.showMessageDialog(this, e.getMessage());
         } catch (Exception e) {
-             JOptionPane.showMessageDialog(this, "Problemas al hacer la acción prebista");
+             JOptionPane.showMessageDialog(this, "Problemas al hacer la acción a realizar");
         }
     }//GEN-LAST:event_bAceptarActionPerformed
 
@@ -324,6 +342,7 @@ public class VEventos extends javax.swing.JFrame {
                     tfHoraInicio.setEnabled(true);
                     tfAforo.setEnabled(true);
                     tfNombre.setEnabled(false); 
+                    bConfirmar.setEnabled(false); 
                     break;
             }
         }

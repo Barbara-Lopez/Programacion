@@ -44,7 +44,7 @@ public class Ejercicio22 {
     }
 
     public static void guardar(String nombre, String lugar, String fecha, String horaInicio, String horaFin, String aforo) throws SQLException {
-        LocalDate f= LocalDate.parse(fecha, DateTimeFormatter.ofPattern("MM/DD/YYYY"));
+        LocalDate f= LocalDate.parse(fecha, DateTimeFormatter.ofPattern("DD-MM-YYYY"));
         LocalTime hi=LocalTime.parse(horaInicio, DateTimeFormatter.ofPattern("HH:mm"));
         LocalTime hf=LocalTime.parse(horaFin, DateTimeFormatter.ofPattern("HH:mm"));
         aforoEvento=Integer.getInteger(aforo);
@@ -69,7 +69,7 @@ public class Ejercicio22 {
         vp.setVisible(true);
     }
 
-    public static void buscar(String nombre) throws SQLException, Exception {
+    public static void buscar(String nombre) throws Exception {
         e=te.buscar(nombre);
     }
     public static String lugar() {
@@ -94,7 +94,13 @@ public class Ejercicio22 {
         return aforo;
     }
 
-    public static void actualizar() throws SQLException, Exception {
-         te.modificarEvento();
+    public static void actualizar(String nombre, String lugar, String fecha, String horaInicio, String horaFin, String aforo) throws SQLException, Exception {
+        DateTimeFormatter fecha2=DateTimeFormatter.ofPattern("DD-MM-YYYY");
+        LocalDate f= LocalDate.parse(fecha, DateTimeFormatter.ofPattern("DD-MM-YYYY"));
+        LocalTime hi=LocalTime.parse(horaInicio, DateTimeFormatter.ofPattern("HH:mm"));
+        LocalTime hf=LocalTime.parse(horaFin, DateTimeFormatter.ofPattern("HH:mm"));
+        aforoEvento=Integer.getInteger(aforo);
+        e=new Evento(nombre,lugar,f,hi,hf,aforoEvento);
+         te.modificarEvento(e);
     }
 }

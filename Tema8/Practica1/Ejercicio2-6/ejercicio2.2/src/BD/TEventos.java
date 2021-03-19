@@ -5,6 +5,7 @@ import java.sql.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+
 public class TEventos {
     private Connection con;
     private Evento e;
@@ -23,7 +24,7 @@ public class TEventos {
         ps.setTime(5, convertirTime(e.getHoraFin()));
         ps.setInt(6, e.getAforo());
         
-        int n = (int) ps.executeLargeUpdate();
+        int n = ps.executeUpdate();
         
         
     } 
@@ -38,35 +39,38 @@ public class TEventos {
         String delete="delete from evento where nombre=?;";
         PreparedStatement ps=con.prepareStatement(delete);
         ps.setString(1, e.getNombre());
-        int n = (int) ps.executeLargeUpdate();
+        
+        int n = ps.executeUpdate();
         
     }
-    public void modificarEvento() throws SQLException, Exception{
-        String update= "update evento set lugar = ?, fecha = ?,horaInicio = ?, horaFin = ?, aforo = ?  where nombre = ?";
+    public void modificarEvento(Evento e) throws SQLException, Exception{
+        String update= "update evento set lugar = ?, fecha = ?,HoraInicio = ?, horaFin = ?, aforo = ?  where nombre = ?";
         PreparedStatement ps=con.prepareStatement(update);
-        ps.setString(1, e.getNombre());
-        ps.setString(2, e.getLugar());
-        ps.setDate(3, convertirDate(e.getFecha()));
-        ps.setTime(4,convertirTime(e.getHoraInicio()));
-        ps.setTime(5, convertirTime(e.getHoraFin()));
-        ps.setInt(6, e.getAforo());
+        ps.setString(6, e.getNombre());
+        ps.setString(1, e.getLugar());
+        ps.setDate(2, convertirDate(e.getFecha()));
+        ps.setTime(3,convertirTime(e.getHoraInicio()));
+        ps.setTime(4, convertirTime(e.getHoraFin()));
+        ps.setInt(5, e.getAforo());
         
-        int n = (int) ps.executeLargeUpdate();
+        int n = ps.executeUpdate();
            if (n != 1)
             throw new Exception("El número de filas actualizadas no es uno");
     }
-    public Evento buscar(String nombre) throws SQLException, Exception{
+    public Evento buscar(String nombre) throws Exception{
         String insert="select * from evento where nombre=?;";
         PreparedStatement ps=con.prepareStatement(insert);
         ps.setString(1, nombre);
         
         ResultSet resultado  = ps.executeQuery();
         if(resultado.next()){
-            e.setNombre(resultado.getString("nombre"));
-            e.setLugar(resultado.getString("lugar"));
-            e.setFecha(resultado.getDate("fecha").toLocalDate());
-            e.setHoraInicio(resultado.getTime("horaInicio").toLocalTime());
-            e.setHoraFin(resultado.getTime("horaFin").toLocalTime());
+            e=new Evento();
+            e.setNombre(resultado.getString("Nombre"));
+            e.setLugar(resultado.getString("Lugar"));
+            e.setFecha(resultado.getDate("Fecha").toLocalDate());
+            e.setHoraInicio(resultado.getTime("HoraInicio").toLocalTime());
+            e.setHoraFin(resultado.getTime("HoraFin").toLocalTime());
+            e.setAforo(resultado.getInt("Aforo"));
             return e;
         }
         else 
