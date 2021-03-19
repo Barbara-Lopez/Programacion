@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 18-03-2021 a las 12:30:32
+-- Tiempo de generación: 19-03-2021 a las 15:45:11
 -- Versión del servidor: 5.6.13
 -- Versión de PHP: 5.4.17
 
@@ -62,6 +62,13 @@ CREATE TABLE IF NOT EXISTS `evento` (
   `Aforo` int(4) NOT NULL,
   PRIMARY KEY (`Nombre`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `evento`
+--
+
+INSERT INTO `evento` (`Nombre`, `Lugar`, `Fecha`, `Hora Inicio`, `Hora Fin`, `Aforo`) VALUES
+('fiesta', 'asdf', '2021-04-01', '12:21:00', '12:23:00', 10);
 
 -- --------------------------------------------------------
 
