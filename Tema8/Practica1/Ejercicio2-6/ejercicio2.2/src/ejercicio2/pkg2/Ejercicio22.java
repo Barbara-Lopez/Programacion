@@ -95,7 +95,6 @@ public class Ejercicio22 {
     }
 
     public static void actualizar(String nombre, String lugar, String fecha, String horaInicio, String horaFin, String aforo) throws SQLException, Exception {
-        DateTimeFormatter fecha2=DateTimeFormatter.ofPattern("DD-MM-YYYY");
         LocalDate f= LocalDate.parse(fecha, DateTimeFormatter.ofPattern("DD-MM-YYYY"));
         LocalTime hi=LocalTime.parse(horaInicio, DateTimeFormatter.ofPattern("HH:mm"));
         LocalTime hf=LocalTime.parse(horaFin, DateTimeFormatter.ofPattern("HH:mm"));
