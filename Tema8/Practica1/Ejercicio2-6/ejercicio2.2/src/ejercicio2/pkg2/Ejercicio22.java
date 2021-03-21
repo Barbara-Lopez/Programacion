@@ -14,6 +14,7 @@ public class Ejercicio22 {
     private static BaseDatos bd;
     private static TEventos te;
     private static TAsistencia ta;
+    private static TEmpresa temp;
 
     private static VPrincipal vp;
     private static VEventos ve;
@@ -22,12 +23,15 @@ public class Ejercicio22 {
     private static char opcionElegida;
     private static int aforoEvento;
     private static Evento e;
+    private static Persona p; 
+    private static Empresa emp;
     
     public static void main(String[] args) throws Exception {
         bd=new BaseDatos();
         bd.conectar();
         te=new TEventos(bd.getCon());
-        te=new TEventos(bd.getCon());
+        ta=new TAsistencia(bd.getCon());
+        temp=new TEmpresa(bd.getCon());
         
         vp= new VPrincipal();
         vp.setVisible(true); 
@@ -114,4 +118,21 @@ public class Ejercicio22 {
         e=new Evento(nombre,lugar,f,hi,hf,aforoEvento);
          te.modificarEvento(e);
     }
+    public static void insertarP(){
+         
+    
+    }
+    public static void insertarE(String text, String text0) {
+        p=new Persona();
+        ta.insetar(p);
+    }
+    public static void insertarP(String dni, String nombre, String apllidos, String telefono, String nif) {
+        p=new Persona();
+        ta.insetar(p);
+
+    }
+
+
+    
+    
 }

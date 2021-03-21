@@ -1,6 +1,6 @@
 package Clases;
 
-class Empresa {
+public class Empresa {
     private int nif;
     private String nombre;
 
@@ -12,8 +12,8 @@ class Empresa {
         this.nombre = nombre;
     }
     
-    // Getter and Setter
-    
+    // getter and Setter
+
     public int getNif() {
         return nif;
     }

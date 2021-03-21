@@ -1,18 +1,17 @@
 package BD;
 
-import Clases.*;
 import java.sql.*;
+import Clases.*;
 
-public class TAsistencia {
+public class TEmpresa {
     private Connection con;
 
-    public TAsistencia(Connection con) {
+    public TEmpresa(Connection con) {
         this.con = con;
     }
     
-    public void insetar(Persona p){
+    public void insetar(Empresa emp){
         String insert="insert into personas values (?,?,?,?,?)";
         
     }
-    
 }

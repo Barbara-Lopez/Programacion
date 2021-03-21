@@ -327,7 +327,8 @@ public class VAsistencia extends javax.swing.JFrame {
     }//GEN-LAST:event_tfNombrePActionPerformed
 
     private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
-        // TODO add your handling code here:
+        Ejercicio22.insertarE(tfNif.getText(),tfNombreE.getText());
+        Ejercicio22.insertarP(tfDni.getText(),tfNombreP.getText(),tfApellidosP.getText(),tfTelefono.getText(),tfNif.getText());
     }//GEN-LAST:event_bAceptarActionPerformed
 
     private void bCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCancelarActionPerformed
