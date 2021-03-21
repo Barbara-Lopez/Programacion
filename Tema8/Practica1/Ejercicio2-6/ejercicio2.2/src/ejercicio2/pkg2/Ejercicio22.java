@@ -13,9 +13,11 @@ public class Ejercicio22 {
     
     private static BaseDatos bd;
     private static TEventos te;
+    private static TAsistencia ta;
 
     private static VPrincipal vp;
     private static VEventos ve;
+    private static VAsistencia va;
     
     private static char opcionElegida;
     private static int aforoEvento;
@@ -24,6 +26,7 @@ public class Ejercicio22 {
     public static void main(String[] args) throws Exception {
         bd=new BaseDatos();
         bd.conectar();
+        te=new TEventos(bd.getCon());
         te=new TEventos(bd.getCon());
         
         vp= new VPrincipal();
@@ -58,7 +61,12 @@ public class Ejercicio22 {
         ve=new VEventos();
         ve.setVisible(true); 
     }
-
+    public static void asistencia() {
+        vp.setVisible(false); 
+        
+        va=new VAsistencia();
+        va.setVisible(true); 
+    }
     public static void eliminar() throws SQLException {
         te.eliminarEvento();
     }
@@ -68,7 +76,11 @@ public class Ejercicio22 {
         
         vp.setVisible(true);
     }
-
+    public static void inicio2() {
+        va.dispose();
+        
+        vp.setVisible(true);
+    }
     public static void buscar(String nombre) throws Exception {
         e=te.buscar(nombre);
     }

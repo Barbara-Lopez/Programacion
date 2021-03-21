@@ -219,7 +219,7 @@ public class VPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_mEliminarActionPerformed
 
     private void mAsistenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mAsistenciaActionPerformed
-        
+        Ejercicio22.asistencia();
     }//GEN-LAST:event_mAsistenciaActionPerformed
 
     private void mListadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mListadoActionPerformed
@@ -227,7 +227,7 @@ public class VPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_mListadoActionPerformed
 
     private void bAsistenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAsistenciaActionPerformed
-        
+        Ejercicio22.asistencia();
     }//GEN-LAST:event_bAsistenciaActionPerformed
 
     private void mActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mActualizarActionPerformed

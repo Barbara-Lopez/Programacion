@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 19-03-2021 a las 15:45:11
+-- Tiempo de generación: 21-03-2021 a las 16:29:31
 -- Versión del servidor: 5.6.13
 -- Versión de PHP: 5.4.17
 
@@ -57,8 +57,8 @@ CREATE TABLE IF NOT EXISTS `evento` (
   `Nombre` varchar(50) NOT NULL,
   `Lugar` varchar(50) NOT NULL,
   `Fecha` date NOT NULL,
-  `Hora Inicio` time NOT NULL,
-  `Hora Fin` time NOT NULL,
+  `HoraInicio` time NOT NULL,
+  `HoraFin` time NOT NULL,
   `Aforo` int(4) NOT NULL,
   PRIMARY KEY (`Nombre`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `evento` (
 -- Volcado de datos para la tabla `evento`
 --
 
-INSERT INTO `evento` (`Nombre`, `Lugar`, `Fecha`, `Hora Inicio`, `Hora Fin`, `Aforo`) VALUES
+INSERT INTO `evento` (`Nombre`, `Lugar`, `Fecha`, `HoraInicio`, `HoraFin`, `Aforo`) VALUES
 ('fiesta', 'asdf', '2021-04-01', '12:21:00', '12:23:00', 10);
 
 -- --------------------------------------------------------
