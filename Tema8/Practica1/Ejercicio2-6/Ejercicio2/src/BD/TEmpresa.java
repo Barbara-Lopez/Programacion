@@ -10,8 +10,12 @@ public class TEmpresa {
         this.con = con;
     }
     
-    public void insetar(Empresa emp){
+    public void insetar(Empresa emp) throws SQLException{
         String insert="insert into personas values (?,?)";
+        PreparedStatement ps=con.prepareStatement(insert);
+        ps.setInt(1, emp.getNif());
+        ps.setString(2, emp.getNombre());
         
+        int i=ps.executeUpdate();
     }
 }

@@ -128,8 +128,8 @@ public class Ejercicio2 {
         p=new Persona(dni,nombre,apellidos,tel,emp);
         tp.insetar(p);
     }
-    public static void insetAsistencia() {
-        ta.insetar(p,emp);
+    public static void insetAsistencia() throws SQLException {
+        ta.insetar(p,e);
     }
 
 
