@@ -13,6 +13,9 @@ public class Ejercicio13 {
     
     private static VPrincipal vp;
     private static VCliente vcli;
+    private static VAbogado va;
+    private static VCaso vc;
+    private static VConsultas vC;
 
     private static char opcionCliente;
     private static char opcionAbogado;
@@ -32,17 +35,40 @@ public class Ejercicio13 {
         vp=new VPrincipal();
         vp.setVisible(true);
     }
+    
+    public static void inicio() {
+        vcli.dispose();
+        
+        vp.setVisible(true);        
+    }
+    
+    // Visualizar ventanas
     public static void vCliente() {
         vp.setVisible(false);
         
         vcli=new VCliente();
         vcli.setVisible(true);
     }
-    public static void inicio() {
-        vcli.dispose();
+    public static void vAbogado() {
+        vp.setVisible(false);
         
-        vp.setVisible(true);        
+        va=new VAbogado();
+        va.setVisible(true);
     }
+    public static void vCaso() {
+        vp.setVisible(false);
+        
+        vc=new VCaso();
+        vc.setVisible(true);
+    }
+    public static void vConsultas() {
+        vp.setVisible(false);
+        
+        vC=new VConsultas();
+        vC.setVisible(true);
+    }
+    
+    // Opciones elegidas
     public static void opcionCliente(char cliente) {
         opcionCliente=cliente;
     }
@@ -61,7 +87,8 @@ public class Ejercicio13 {
     public static char opcionCa() {
         return opcionCaso;
     }
-
+    
+    // Cliente
     public static void bajaCliente() {
         tcli.eliminar();
     }
@@ -77,10 +104,12 @@ public class Ejercicio13 {
     public static void modificarCliente(String dni, String nombre, String apellido, String telefono, String correo) {
 
     }
+    
+    // Caso
     public static void bajaCaso() {
         tc.eliminar();
     }
-
+    
     public static void confirmarCaso(String id) {
         cli=tc.confirmar(id);
     }
@@ -88,11 +117,12 @@ public class Ejercicio13 {
     public static void altaCaso() {
 
     }
-
+    
     public static void modificarCaso() {
 
     }
-   
+    
+    // Abogado 
     public static void bajaAbogado() {
         ta.eliminar();
     }
@@ -108,5 +138,8 @@ public class Ejercicio13 {
     public static void modificarAbogado(String dni, String nombre, String apellido, String direccion) {
 
     }
+    
+    // Caso-Abogado
+    
 
 }
