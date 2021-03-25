@@ -23,8 +23,18 @@ public class BaseDatos {
         }  
     }
     public void desconectar(){
+         try{
+            con.close();
         
-    
+        }
+        catch(Exception e){
+               System.out.println("Problemas cerrando la conexión");
+        
+        }        
     }
+    public Connection getCon(){
+        return con;
+    }
+    
     
 }
