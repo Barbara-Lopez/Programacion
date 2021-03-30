@@ -1,6 +1,6 @@
 package BD;
 
-import Clases.Cliente;
+import Clases.Caso;
 import java.sql.*;
         
 public class TCasos {
@@ -12,11 +12,13 @@ public class TCasos {
     }
 
     public void eliminar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
     }
 
-    public Cliente confirmar(String id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Caso confirmar(String id) {
+        return null;
+
+
     }
     
 }

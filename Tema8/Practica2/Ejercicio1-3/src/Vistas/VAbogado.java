@@ -6,6 +6,7 @@
 package Vistas;
 
 import ejercicio1.pkg3.Ejercicio13;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -45,13 +46,11 @@ public class VAbogado extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         tfDni = new javax.swing.JTextField();
         tfNombre = new javax.swing.JTextField();
         tfApellido = new javax.swing.JTextField();
-        tfTelefono = new javax.swing.JTextField();
-        tfCorreo = new javax.swing.JTextField();
+        tfDireccion = new javax.swing.JTextField();
         bAceptar = new javax.swing.JButton();
         bCancelar = new javax.swing.JButton();
         bConfirmar = new javax.swing.JButton();
@@ -76,9 +75,7 @@ public class VAbogado extends javax.swing.JFrame {
 
         jLabel3.setText("Apellido");
 
-        jLabel4.setText("Telefono");
-
-        jLabel5.setText("Correo");
+        jLabel5.setText("Direccion");
 
         bAceptar.setText("Aceptar");
         bAceptar.addActionListener(new java.awt.event.ActionListener() {
@@ -123,16 +120,14 @@ public class VAbogado extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
                             .addComponent(jLabel5)
-                            .addComponent(jLabel4)
                             .addComponent(jLabel3)
                             .addComponent(jLabel2))
                         .addGap(35, 35, 35)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(tfTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
-                            .addComponent(tfApellido)
+                            .addComponent(tfApellido, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
                             .addComponent(tfNombre)
                             .addComponent(tfDni)
-                            .addComponent(tfCorreo))
+                            .addComponent(tfDireccion))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -141,7 +136,7 @@ public class VAbogado extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lTesto, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 31, Short.MAX_VALUE)
+                .addGap(18, 36, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(tfDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -155,12 +150,8 @@ public class VAbogado extends javax.swing.JFrame {
                     .addComponent(tfApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(tfTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(tfCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bCancelar)
@@ -176,33 +167,36 @@ public class VAbogado extends javax.swing.JFrame {
     private void lTestoAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_lTestoAncestorAdded
         switch(opcion){
             case 'a':
-                lTesto.setText("Alta Cliente"); 
+                lTesto.setText("Alta Abogado"); 
                 break;
             case 'b':
-                lTesto.setText("Baja Cliente"); 
+                lTesto.setText("Baja Abogado"); 
                 break;  
             case 'm':
-                lTesto.setText("Modificar Cliente"); 
+                lTesto.setText("Modificar Abogado"); 
                 break; 
         }
     }//GEN-LAST:event_lTestoAncestorAdded
 
     private void bCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCancelarActionPerformed
-        Ejercicio13.inicio();
+        Ejercicio13.inicioA();
     }//GEN-LAST:event_bCancelarActionPerformed
 
     private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
         try{
             switch(opcion){
                 case 'a':
-                    Ejercicio13.altaAbogado(tfDni.getText(),tfNombre.getText(),tfApellido.getText(),tfCorreo.getText());
+                    Ejercicio13.altaAbogado(tfDni.getText(),tfNombre.getText(),tfApellido.getText(),tfDireccion.getText());
+                    Ejercicio13.inicioA();
                     break;
                 case 'b':
-                    Ejercicio13.bajaCliente();
+                    Ejercicio13.bajaAbogado();
+                    Ejercicio13.inicioA();
                     break;  
                 case 'm':
-                   Ejercicio13.modificarAbogado(tfDni.getText(),tfNombre.getText(),tfApellido.getText(),tfCorreo.getText()); 
-                    break; 
+                   Ejercicio13.modificarAbogado(tfDni.getText(),tfNombre.getText(),tfApellido.getText(),tfDireccion.getText()); 
+                   Ejercicio13.inicioA();
+                   break; 
             }
         }
         catch(Exception e){
@@ -217,15 +211,20 @@ public class VAbogado extends javax.swing.JFrame {
             
                 case 'b':
                     Ejercicio13.confirmarAbogado(tfDni.getText()); 
+                    tfNombre.setText(Ejercicio13.getNombreA());
+                    tfApellido.setText(Ejercicio13.getApellidoA());
+                    tfDireccion.setText(Ejercicio13.getDireccionA()); 
                     break;  
                 case 'm':
                     Ejercicio13.confirmarAbogado(tfDni.getText()); 
-                    
+                    tfNombre.setText(Ejercicio13.getNombreA());
+                    tfApellido.setText(Ejercicio13.getApellidoA());
+                    tfDireccion.setText(Ejercicio13.getDireccionA());
                     break; 
             }
         }
         catch(Exception e){
-        
+            JOptionPane.showMessageDialog(this, "Problemas al encontrar al abogado");
         
         }
     }//GEN-LAST:event_bConfirmarActionPerformed
@@ -275,13 +274,11 @@ public class VAbogado extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel lTesto;
     private javax.swing.JTextField tfApellido;
-    private javax.swing.JTextField tfCorreo;
+    private javax.swing.JTextField tfDireccion;
     private javax.swing.JTextField tfDni;
     private javax.swing.JTextField tfNombre;
-    private javax.swing.JTextField tfTelefono;
     // End of variables declaration//GEN-END:variables
 }

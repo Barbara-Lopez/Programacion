@@ -6,6 +6,7 @@
 package Vistas;
 
 import ejercicio1.pkg3.Ejercicio13;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -61,12 +62,12 @@ public class VCliente extends javax.swing.JFrame {
         lTesto.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lTesto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lTesto.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 lTestoAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
 
@@ -79,6 +80,36 @@ public class VCliente extends javax.swing.JFrame {
         jLabel4.setText("Telefono");
 
         jLabel5.setText("Correo");
+
+        tfDni.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfDniActionPerformed(evt);
+            }
+        });
+
+        tfNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfNombreActionPerformed(evt);
+            }
+        });
+
+        tfApellido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfApellidoActionPerformed(evt);
+            }
+        });
+
+        tfTelefono.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfTelefonoActionPerformed(evt);
+            }
+        });
+
+        tfCorreo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfCorreoActionPerformed(evt);
+            }
+        });
 
         bAceptar.setText("Aceptar");
         bAceptar.addActionListener(new java.awt.event.ActionListener() {
@@ -188,7 +219,7 @@ public class VCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_lTestoAncestorAdded
 
     private void bCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCancelarActionPerformed
-        Ejercicio13.inicio();
+        Ejercicio13.inicioCli();
     }//GEN-LAST:event_bCancelarActionPerformed
 
     private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
@@ -196,17 +227,20 @@ public class VCliente extends javax.swing.JFrame {
             switch(opcion){
                 case 'a':
                     Ejercicio13.altaCliente(tfDni.getText(),tfNombre.getText(),tfApellido.getText(),tfTelefono.getText(),tfCorreo.getText());
+                    Ejercicio13.inicioCli();
                     break;
                 case 'b':
                     Ejercicio13.bajaCliente();
+                    Ejercicio13.inicioCli();
                     break;  
                 case 'm':
                    Ejercicio13.modificarCliente(tfDni.getText(),tfNombre.getText(),tfApellido.getText(),tfTelefono.getText(),tfCorreo.getText()); 
-                    break; 
+                   Ejercicio13.inicioCli();
+                   break; 
             }
         }
         catch(Exception e){
-        
+            JOptionPane.showMessageDialog(this, "Problemas al hacer la accion");
         
         }
     }//GEN-LAST:event_bAceptarActionPerformed
@@ -216,19 +250,47 @@ public class VCliente extends javax.swing.JFrame {
             switch(opcion){
             
                 case 'b':
-                    Ejercicio13.confirmarCliente(tfDni.getText()); 
+                    Ejercicio13.confirmarCliente(tfDni.getText());
+                    tfNombre.setText(Ejercicio13.getNombreCli());
+                    tfApellido.setText(Ejercicio13.getApellidoCli());
+                    tfTelefono.setText(Ejercicio13.getTelefonoCli());
+                    tfCorreo.setText(Ejercicio13.getCorreoCli()); 
                     break;  
                 case 'm':
                     Ejercicio13.confirmarCliente(tfDni.getText()); 
-                    
+                    tfNombre.setText(Ejercicio13.getNombreCli());
+                    tfApellido.setText(Ejercicio13.getApellidoCli());
+                    tfTelefono.setText(Ejercicio13.getTelefonoCli());
+                    tfCorreo.setText(Ejercicio13.getCorreoCli()); 
                     break; 
             }
+            bAceptar.setEnabled(true); 
         }
         catch(Exception e){
-        
+            JOptionPane.showMessageDialog(this, "Problemas al encontrar al cliente");
         
         }
     }//GEN-LAST:event_bConfirmarActionPerformed
+
+    private void tfDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfDniActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfDniActionPerformed
+
+    private void tfNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfNombreActionPerformed
+
+    private void tfApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfApellidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfApellidoActionPerformed
+
+    private void tfTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfTelefonoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfTelefonoActionPerformed
+
+    private void tfCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfCorreoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfCorreoActionPerformed
 
     /**
      * @param args the command line arguments

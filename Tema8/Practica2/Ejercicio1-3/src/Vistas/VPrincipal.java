@@ -15,6 +15,7 @@ public class VPrincipal extends javax.swing.JFrame {
     private char cliente;
     private char caso;
     private char abogado;
+    private String consulta;
     /**
      * Creates new form VPrincipal
      */
@@ -190,11 +191,14 @@ public class VPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void mConsultarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mConsultarPActionPerformed
-        
+        consulta="cliente";
+         Ejercicio13.opcionConsulta(consulta);
+         
     }//GEN-LAST:event_mConsultarPActionPerformed
 
     private void mConsultarAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mConsultarAActionPerformed
-
+        consulta="abogado";
+         Ejercicio13.opcionConsulta(consulta);
     }//GEN-LAST:event_mConsultarAActionPerformed
 
     private void mConsultarCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mConsultarCActionPerformed
@@ -222,31 +226,37 @@ public class VPrincipal extends javax.swing.JFrame {
     private void mAltaAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mAltaAActionPerformed
         abogado='a';
         Ejercicio13.opcionAbogado(abogado);
+        Ejercicio13.vAbogado();
     }//GEN-LAST:event_mAltaAActionPerformed
 
     private void mBajaAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mBajaAActionPerformed
         abogado='b';
         Ejercicio13.opcionAbogado(abogado);
+        Ejercicio13.vAbogado();
     }//GEN-LAST:event_mBajaAActionPerformed
 
     private void mModificarAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mModificarAActionPerformed
         abogado='m';
         Ejercicio13.opcionAbogado(abogado); 
+        Ejercicio13.vAbogado();
     }//GEN-LAST:event_mModificarAActionPerformed
 
     private void mAltaCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mAltaCActionPerformed
         caso='a';
         Ejercicio13.opcionCaso(caso);
+        Ejercicio13.vCaso();
     }//GEN-LAST:event_mAltaCActionPerformed
 
     private void mBajaCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mBajaCActionPerformed
         caso='b';
         Ejercicio13.opcionCaso(caso);
+        Ejercicio13.vCaso();
     }//GEN-LAST:event_mBajaCActionPerformed
 
     private void mModificarCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mModificarCActionPerformed
         caso='m';
         Ejercicio13.opcionCaso(caso);
+        Ejercicio13.vCaso();
     }//GEN-LAST:event_mModificarCActionPerformed
 
     /**
