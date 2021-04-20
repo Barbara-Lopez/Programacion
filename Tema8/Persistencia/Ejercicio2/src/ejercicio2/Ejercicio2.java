@@ -14,7 +14,9 @@ import java.time.LocalTime;
 
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Persistence;
+import javax.swing.JComboBox;
 
 
 
@@ -24,7 +26,7 @@ public class Ejercicio2 {
     public static EmpresaJpaController bdemp;
     public static EventoJpaController bdev;
     
-  
+    public static List<Evento> listaEventos;
     
     private static VPrincipal vp;
     private static VEventos ve;
@@ -129,8 +131,9 @@ public class Ejercicio2 {
         return e.getLugar();
     }
 
-    public static String fecha() {
+    public static String fecha() throws ParseException {
         String fecha=String.valueOf(e.getFecha());
+
         return fecha;
     }
 
@@ -140,6 +143,7 @@ public class Ejercicio2 {
     }
 
     public static String horaI() {
+        
         String fecha=String.valueOf(e.getHoraInicio());
         return fecha;
     }
@@ -147,6 +151,17 @@ public class Ejercicio2 {
     public static String aforo() {
          String num=String.valueOf(e.getAforo());
         return num;
+    }
+
+    public static void asistenciaEvento(JComboBox<String> Eventos){
+        listaEventos=bdev.findEventoEntities();
+        for(int x=0;x<listaEventos.size();x++){
+            Eventos.insertItemAt(listaEventos.get(x).getNombre(), x);
+        }
+    }
+    
+    public static void asistenciaEvento2(int num) {
+        e=listaEventos.get(num);
     }
     
     // Insertar Persona y Empresa
@@ -163,6 +178,9 @@ public class Ejercicio2 {
         bdemp.create(em); 
     }
 
+    
+
+    
     
     
 }
